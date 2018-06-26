@@ -12,6 +12,7 @@ ExecStart=/bin/borg create \
                /home/alex/.emacs                \
                /home/alex/.gdbinit              \
                /home/alex/.git                  \
+               /home/alex/.gitconfig            \
                /home/alex/.gnupg                \
                /home/alex/.ssh                  \
                /home/alex/.vnc                  \
