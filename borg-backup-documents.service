@@ -3,7 +3,9 @@ Description=Automated Borg Backup: Documents
 
 [Service]
 Type=oneshot
-ExecStart=/bin/borg create --stat --compression zlib /home/alex/Backup/borg/k-2so-alex::Documents-{now} /home/alex/Documents
+ExecStart=/bin/borg create \
+                    --stat --compression zlib \
+                    /home/alex/Backup/borg/k-2so-alex-documents::{now} /home/alex/Documents
 # This is the default scheduling class
 IOSchedulingClass=best-effort
 # This is the second to lowest priority

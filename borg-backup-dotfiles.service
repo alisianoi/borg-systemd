@@ -5,7 +5,7 @@ Description=Automated Borg Backup: dotfiles
 Type=oneshot
 ExecStart=/bin/borg create \
                --stat --compression zlib \
-               /home/alex/Backup/borg/k-2so-alex::dotfiles-{now} \
+               /home/alex/Backup/borg/k-2so-alex-dotfiles::{now} \
                /home/alex/.Xauthority           \
                /home/alex/.Xresources           \
                /home/alex/.atom/                \
