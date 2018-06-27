@@ -3,8 +3,9 @@ Description=Automated Borg Backup: Documents
 
 [Timer]
 WakeSystem=false
+
 OnBootSec=15min
-OnUnitActiveSec=15min
+OnActiveSec=15min
 
 [Install]
 WantedBy=timers.target
