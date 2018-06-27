@@ -16,6 +16,7 @@ ExecStart=/bin/borg create \
                /home/alex/.ssh                  \
                /home/alex/.vnc                  \
                /home/alex/.pam_environment      \
+               /home/alex/.zprofile             \
                /home/alex/.zshrc.local          \
                --exclude '/home/alex/.atom/blob-store'    \
                --exclude '/home/alex/.atom/compile-cache' \
