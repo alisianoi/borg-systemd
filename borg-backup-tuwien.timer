@@ -1,0 +1,9 @@
+[Unit]
+Description=Borgmatic: Timer for the Automated Borg Backup
+
+[Timer]
+OnBootSec=15m
+OnActiveSec=1h
+
+[Install]
+WantedBy=timers.target

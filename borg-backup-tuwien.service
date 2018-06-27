@@ -1,0 +1,20 @@
+[Unit]
+Description=Automated Borg Backup: TUWien
+
+[Service]
+Type=oneshot
+
+Environment=HOST=k-2so
+Environment=USER=alex
+Environment=REPO=tuwien
+
+ExecStart=/bin/borg create \
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} /home/${USER}/TUWien
+ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --keep-within  3d     \
+    --keep-daily   30     \
+    --keep-monthly 11     \
+    --keep-yearly  5      \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
