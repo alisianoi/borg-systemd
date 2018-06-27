@@ -1,0 +1,9 @@
+[Unit]
+Description=Borg for Pictures
+
+[Timer]
+OnBootSec=15m
+OnActiveSec=3h
+
+[Install]
+WantedBy=timers.target

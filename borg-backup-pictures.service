@@ -1,0 +1,20 @@
+[Unit]
+Description=Automated Borg Backup: Pictures
+
+[Service]
+Type=oneshot
+
+Environment=HOST=k-2so
+Environment=USER=alex
+Environment=REPO=pictures
+
+ExecStart=/bin/borg create \
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} /home/${USER}/Pictures
+ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --keep-within  3d     \
+    --keep-daily   30     \
+    --keep-monthly 22     \
+    --keep-yearly  10     \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
