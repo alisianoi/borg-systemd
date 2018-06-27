@@ -9,10 +9,14 @@ Environment=USER=kate
 Environment=REPO=documents
 
 ExecStart=/bin/borg create \
+    --verbose   \
     --stat --compression zlib \
     /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} /home/${USER}/Documents
-ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg check \
+    --verbose             \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
 ExecStart=/bin/borg prune \
+    --verbose             \
     --keep-within 3d      \
     --keep-hourly 264     \
     --keep-daily  14      \
