@@ -18,18 +18,6 @@ ExecStart=/bin/borg create \
                /home/alex/.pam_environment      \
                /home/alex/.zprofile             \
                /home/alex/.zshrc.local          \
-               --exclude '/home/alex/.atom/blob-store'    \
-               --exclude '/home/alex/.atom/compile-cache' \
-               --exclude '/home/alex/.atom/dev'           \
-               --exclude '/home/alex/.atom/storage'       \
-               --exclude '/home/alex/.atom/.apm'          \
-               --exclude '/home/alex/.atom/.node-gyp'     \
-               --exclude '/home/alex/.atom/.npm'
-
-# This is the default scheduling class
-IOSchedulingClass=best-effort
-# This is the second to lowest priority
-IOSchedulingPriority=6
 
 [Install]
 WantedBy=default.target
