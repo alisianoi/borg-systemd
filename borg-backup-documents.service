@@ -6,19 +6,20 @@ Type=oneshot
 
 Environment=HOST=k-2so
 Environment=USER=alex
+Environment=REPO=documents
 
 ExecStart=/bin/borg create \
     --stat --compression zlib \
-    /home/${USER}/Backup/borg/${HOST}-${USER}-documents::{now} /home/${USER}/Documents
-ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-documents
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} /home/${USER}/Documents
+ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
 ExecStart=/bin/borg prune \
-    --keep-within 3d  \
-    --keep-hourly 264 \
-    --keep-daily 14   \
-    --keep-weekly 20  \
-    --keep-monthly 6  \
-    --keep-yearly  5  \
-    /home/${USER}/Backup/borg/${HOST}-${USER}-documents
+    --keep-within 3d      \
+    --keep-hourly 264     \
+    --keep-daily  14      \
+    --keep-weekly 20      \
+    --keep-monthly 6      \
+    --keep-yearly  5      \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
 
 [Install]
 WantedBy=default.target
