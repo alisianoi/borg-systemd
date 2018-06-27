@@ -3,21 +3,32 @@ Description=Automated Borg Backup: dotfiles
 
 [Service]
 Type=oneshot
+
+Environment=HOST=k-2so
+Environment=USER=alex
+Environment=REPO=dotfiles
+
 ExecStart=/bin/borg create \
                --stat --compression zlib \
-               /home/alex/Backup/borg/k-2so-alex-dotfiles::{now} \
-               /home/alex/.Xauthority           \
-               /home/alex/.Xresources           \
-               /home/alex/.emacs                \
-               /home/alex/.gdbinit              \
-               /home/alex/.git                  \
-               /home/alex/.gitconfig            \
-               /home/alex/.gnupg                \
-               /home/alex/.ssh                  \
-               /home/alex/.vnc                  \
-               /home/alex/.pam_environment      \
-               /home/alex/.zprofile             \
-               /home/alex/.zshrc.local          \
-
+               /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
+               /home/${USER}/.Xauthority           \
+               /home/${USER}/.Xresources           \
+               /home/${USER}/.emacs                \
+               /home/${USER}/.gdbinit              \
+               /home/${USER}/.git                  \
+               /home/${USER}/.gitconfig            \
+               /home/${USER}/.gnupg                \
+               /home/${USER}/.ssh                  \
+               /home/${USER}/.vnc                  \
+               /home/${USER}/.pam_environment      \
+               /home/${USER}/.zprofile             \
+               /home/${USER}/.zshrc.local          \
+ExecStart=/bin/borg check  /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --keep-within  3d     \
+    --keep-daily   30     \
+    --keep-monthly 11     \
+    --keep-yearly   5     \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
 [Install]
 WantedBy=default.target
