@@ -30,5 +30,3 @@ ExecStart=/bin/borg prune \
     --keep-monthly 11     \
     --keep-yearly   5     \
     /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
-[Install]
-WantedBy=default.target
