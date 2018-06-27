@@ -2,9 +2,7 @@
 Description=Borgmatic: Timer for the Automated Borg Backup
 
 [Timer]
-WakeSystem=false
-
-OnBootSec=20m
+OnBootSec=15m
 OnActiveSec=1h
 
 [Install]

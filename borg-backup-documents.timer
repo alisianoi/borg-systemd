@@ -2,8 +2,6 @@
 Description=Automated Borg Backup: Documents
 
 [Timer]
-WakeSystem=false
-
 OnBootSec=15min
 OnActiveSec=15min
 
