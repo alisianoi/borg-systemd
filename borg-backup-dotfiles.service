@@ -8,7 +8,6 @@ ExecStart=/bin/borg create \
                /home/alex/Backup/borg/k-2so-alex-dotfiles::{now} \
                /home/alex/.Xauthority           \
                /home/alex/.Xresources           \
-               /home/alex/.atom/                \
                /home/alex/.emacs                \
                /home/alex/.gdbinit              \
                /home/alex/.git                  \
