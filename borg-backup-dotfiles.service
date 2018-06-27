@@ -4,8 +4,8 @@ Description=Automated Borg Backup: dotfiles
 [Service]
 Type=oneshot
 
-Environment=HOST=k-2so
-Environment=USER=alex
+Environment=HOST=loki
+Environment=USER=kate
 Environment=REPO=dotfiles
 
 ExecStart=/bin/borg create \
@@ -13,14 +13,15 @@ ExecStart=/bin/borg create \
                /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
                /home/${USER}/.Xauthority           \
                /home/${USER}/.Xresources           \
+               /home/${USER}/.bashrc               \
+               /home/${USER}/.bash_logout          \
+               /home/${USER}/.bash_profile         \
+               /home/${USER}/.config/i3            \
+               /home/${USER}/.config/i3status      \
+               /home/${USER}/.config/termite       \
                /home/${USER}/.emacs                \
-               /home/${USER}/.gdbinit              \
-               /home/${USER}/.git                  \
-               /home/${USER}/.gitconfig            \
-               /home/${USER}/.gnupg                \
                /home/${USER}/.ssh                  \
                /home/${USER}/.vnc                  \
-               /home/${USER}/.pam_environment      \
                /home/${USER}/.zprofile             \
                /home/${USER}/.zshrc.local          \
 ExecStart=/bin/borg check  /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}

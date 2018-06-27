@@ -4,8 +4,8 @@ Description=Automated Borg Backup: Pictures
 [Service]
 Type=oneshot
 
-Environment=HOST=k-2so
-Environment=USER=alex
+Environment=HOST=loki
+Environment=USER=kate
 Environment=REPO=pictures
 
 ExecStart=/bin/borg create \
