@@ -9,22 +9,25 @@ Environment=USER=alex
 Environment=REPO=dotfiles
 
 ExecStart=/bin/borg create \
-               --stat --compression zlib \
-               /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
-               /home/${USER}/.Xauthority           \
-               /home/${USER}/.Xresources           \
-               /home/${USER}/.emacs                \
-               /home/${USER}/.gdbinit              \
-               /home/${USER}/.git                  \
-               /home/${USER}/.gitconfig            \
-               /home/${USER}/.gnupg                \
-               /home/${USER}/.ssh                  \
-               /home/${USER}/.vnc                  \
-               /home/${USER}/.pam_environment      \
-               /home/${USER}/.zprofile             \
-               /home/${USER}/.zshrc.local          \
-ExecStart=/bin/borg check  /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
+    /home/${USER}/.Xauthority           \
+    /home/${USER}/.Xresources           \
+    /home/${USER}/.emacs                \
+    /home/${USER}/.gdbinit              \
+    /home/${USER}/.git                  \
+    /home/${USER}/.gitconfig            \
+    /home/${USER}/.gnupg                \
+    /home/${USER}/.ssh                  \
+    /home/${USER}/.vnc                  \
+    /home/${USER}/.pam_environment      \
+    /home/${USER}/.zprofile             \
+    /home/${USER}/.zshrc.local
+ExecStart=/bin/borg check \
+    --verbose             \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
 ExecStart=/bin/borg prune \
+    --verbose             \
     --keep-within  3d     \
     --keep-daily   30     \
     --keep-monthly 11     \

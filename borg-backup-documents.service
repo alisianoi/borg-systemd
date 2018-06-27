@@ -9,6 +9,7 @@ Environment=USER=alex
 Environment=REPO=documents
 
 ExecStart=/bin/borg create \
+    --verbose              \
     --stat --compression zlib \
     /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} /home/${USER}/Documents
 ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
