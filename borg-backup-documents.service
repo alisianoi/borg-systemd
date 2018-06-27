@@ -3,13 +3,21 @@ Description=Automated Borg Backup: Documents
 
 [Service]
 Type=oneshot
+Environment=HOST=k-2s0
+Environment=USER=alex
+
 ExecStart=/bin/borg create \
-                    --stat --compression zlib \
-                    /home/alex/Backup/borg/k-2so-alex-documents::{now} /home/alex/Documents
-# This is the default scheduling class
-IOSchedulingClass=best-effort
-# This is the second to lowest priority
-IOSchedulingPriority=6
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-documents::{now} /home/${USER}/Documents
+ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-documents
+ExecStart=/bin/borg prune \
+    --keep-within 3d  \
+    --keep-hourly 264 \
+    --keep-daily 14   \
+    --keep-weekly 20  \
+    --keep-monthly 6  \
+    --keep-yearly  5  \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-documents
 
 [Install]
 WantedBy=default.target
