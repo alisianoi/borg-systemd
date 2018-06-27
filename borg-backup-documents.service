@@ -3,7 +3,8 @@ Description=Automated Borg Backup: Documents
 
 [Service]
 Type=oneshot
-Environment=HOST=k-2s0
+
+Environment=HOST=k-2so
 Environment=USER=alex
 
 ExecStart=/bin/borg create \
