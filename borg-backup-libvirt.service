@@ -1,0 +1,25 @@
+[Unit]
+Description=Automated Borg Backup: libvirt
+
+[Service]
+Type=oneshot
+
+Environment=HOST=loki
+Environment=USER=kate
+Environment=REPO=libvirt
+
+ExecStart=/bin/borg create \
+    --verbose              \
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
+    /var/lib/libvirt/images
+ExecStart=/bin/borg check \
+    --verbose             \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --verbose             \
+    --keep-within  3d     \
+    --keep-daily    4     \
+    --keep-monthly 18     \
+    --keep-yearly   5     \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
