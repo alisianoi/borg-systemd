@@ -1,9 +1,8 @@
 [Unit]
-Description=Borgmatic: Timer for the Automated Borg Backup
+Description=Borg Backup: TUWien
 
 [Timer]
-OnBootSec=15m
-OnUnitActiveSec=1h
+OnCalendar=*-*-* 00..02,12,20..23:00:00
 
 [Install]
 WantedBy=timers.target

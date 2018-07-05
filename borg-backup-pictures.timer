@@ -1,9 +1,8 @@
 [Unit]
-Description=Borg for Pictures
+Description=Borg Backup: Pictures
 
 [Timer]
-OnBootSec=15m
-OnUnitActiveSec=3h
+OnCalendar=*-*-* 00,12,18,22:00:00
 
 [Install]
 WantedBy=timers.target
