@@ -1,9 +1,8 @@
 [Unit]
-Description=Borgmatic: Timer for the Automated Borg Backup
+Description=Borg Backup: dotfiles
 
 [Timer]
-OnBootSec=15m
-OnActiveSec=1h
+OnCalendar=*-*-* 00..02,05..23:00,15,30,45:00
 
 [Install]
 WantedBy=timers.target

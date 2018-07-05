@@ -1,9 +1,8 @@
 [Unit]
-Description=Borg for Pictures
+Description=Borg Backup: libvirt
 
 [Timer]
-OnBootSec=1h
-OnActiveSec=4h
+OnCalendar=*-*-* 00,12,16,22:00:00
 
 [Install]
 WantedBy=timers.target
