@@ -1,5 +1,5 @@
 [Unit]
-Description=Automated Borg Backup: dotfiles
+Description=Borg Backup: dotfiles
 
 [Service]
 Type=oneshot

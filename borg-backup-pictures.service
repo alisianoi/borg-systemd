@@ -1,5 +1,5 @@
 [Unit]
-Description=Automated Borg Backup: Pictures
+Description=Borg Backup: Pictures
 
 [Service]
 Type=oneshot

@@ -1,5 +1,5 @@
 [Unit]
-Description=Automated Borg Backup: libvirt
+Description=Borg Backup: libvirt
 
 [Service]
 Type=oneshot
