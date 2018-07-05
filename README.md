@@ -7,7 +7,7 @@ personal backups. Here is a rough procedure how to set them up:
 1. Initialize a borg repo:
 
 ```
-borg init --encryption none ~/Backups/borg/host-user-repo
+borg init --encryption none ~/Backup/borg/host-user-repo
 ```
 
 2. Use a custom `borg-backup-topic.{service,timer}` pair of scripts to
