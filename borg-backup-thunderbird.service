@@ -1,0 +1,25 @@
+[Unit]
+Description=Automated Borg Backup: thunderbird
+
+[Service]
+Type=oneshot
+
+Environment=HOST=k-2so
+Environment=USER=alex
+Environment=REPO=thunderbird
+
+ExecStart=/bin/borg create \
+    --stat --compression zlib \
+    --exclude-if-present lock \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
+    /home/${USER}/.thunderbird
+ExecStart=/bin/borg check \
+    --verbose             \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --verbose             \
+    --keep-within  3d     \
+    --keep-daily   30     \
+    --keep-monthly 11     \
+    --keep-yearly   5     \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
