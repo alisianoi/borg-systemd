@@ -1,5 +1,5 @@
 [Unit]
-Description=Borgmatic: Timer for the Automated Borg Backup
+Description=Automated Borg Backup: dotfiles
 
 [Timer]
 OnBootSec=15m
