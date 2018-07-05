@@ -1,0 +1,8 @@
+[Unit]
+Description=Automated Borg Backup: thunderbird
+
+[Timer]
+OnCalendar=*-*-* 00..02,05..23:00:00
+
+[Install]
+WantedBy=timers.target
