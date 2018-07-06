@@ -1,0 +1,14 @@
+[Unit]
+Description=Borg Backup: onsite rsync
+
+[Service]
+Type=oneshot
+
+Environment=USER=alex
+
+ExecStart=/bin/veracrypt --mount --password YOUR_PASSWORD_HERE \
+    --pim 0 --keyfiles "" --protect-hidden no \
+    /home/${USER}/Desktop/western/norway.vc \
+    /home/${USER}/Backup/onsite
+ExecStart=/usr/bin/rsync --stats --recursive /home/${USER}/Backup/borg /home/${USER}/Backup/manual /home/${USER}/Backup/onsite/Backup
+ExecStart=/bin/veracrypt --dismount /home/${USER}/Desktop/western/norway.vc
