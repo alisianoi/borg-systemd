@@ -4,7 +4,7 @@ Description=Borg Backup: onsite rsync
 [Service]
 Type=oneshot
 
-Environment=USER=alex
+Environment=USER=kate
 
 ExecStart=/bin/veracrypt --mount --password YOUR_PASSWORD_HERE \
     --pim 0 --keyfiles "" --protect-hidden no \
