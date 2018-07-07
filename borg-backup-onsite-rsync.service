@@ -8,7 +8,7 @@ Environment=USER=kate
 
 ExecStart=/bin/veracrypt --mount --password YOUR_PASSWORD_HERE \
     --pim 0 --keyfiles "" --protect-hidden no \
-    /home/${USER}/Desktop/western/norway.vc \
+    /run/media/${USER}/western-ext-hdd/norway.vc \
     /home/${USER}/Backup/onsite
 ExecStart=/usr/bin/rsync --stats --recursive /home/${USER}/Backup/borg /home/${USER}/Backup/manual /home/${USER}/Backup/onsite/Backup
-ExecStart=/bin/veracrypt --dismount /home/${USER}/Desktop/western/norway.vc
+ExecStart=/bin/veracrypt --dismount /run/media/${USER}/western-ext-hdd/norway.vc
