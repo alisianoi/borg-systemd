@@ -1,0 +1,8 @@
+[Unit]
+Description=Borg Backup: RISE POI
+
+[Timer]
+OnCalendar=*-*-* 00..02,05..23:00,15,30,45:00
+
+[Install]
+WantedBy=timers.target

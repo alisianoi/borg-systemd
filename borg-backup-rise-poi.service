@@ -1,0 +1,37 @@
+[Unit]
+Description=Automated Borg Backup: RISE POI
+
+[Service]
+Type=oneshot
+
+Environment=HOST=theon
+Environment=USER=alex
+Environment=REPO=rise-poi
+
+ExecStart=/bin/borg create \
+    --stat --compression zlib \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}::{now} \
+    /home/${USER}/.emacs                                     \
+    /home/${USER}/.gitconfig                                 \
+    /home/${USER}/.gnupg                                     \
+    /home/${USER}/.ssh                                       \
+    /home/${USER}/.xinitrc                                   \
+    /home/${USER}/.zprofile                                  \
+    /home/${USER}/.zshrc.local                               \
+    /home/${USER}/communicator.properties                    \
+    /home/${USER}/crossng-*.properties                       \
+    /home/${USER}/Code/poi/credentials                       \
+    /home/${USER}/Code/poi/setup                             \
+    /home/${USER}/Code/poi/tomcats                           \
+    /home/${USER}/Code/poi/manuals                           \
+    /home/${USER}/Code/poi/credentials
+ExecStart=/bin/borg check /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+ExecStart=/bin/borg prune \
+    --keep-within 3d      \
+    --keep-hourly 264     \
+    --keep-daily  14      \
+    --keep-weekly 20      \
+    --keep-monthly 6      \
+    --keep-yearly  5      \
+    /home/${USER}/Backup/borg/${HOST}-${USER}-${REPO}
+
