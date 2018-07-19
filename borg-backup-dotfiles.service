@@ -15,7 +15,6 @@ ExecStart=/bin/borg create \
     /home/${USER}/.Xresources           \
     /home/${USER}/.emacs                \
     /home/${USER}/.gdbinit              \
-    /home/${USER}/.git                  \
     /home/${USER}/.gitconfig            \
     /home/${USER}/.gnupg                \
     /home/${USER}/.ssh                  \
