@@ -23,7 +23,6 @@ ExecStart=/bin/borg create \
     /home/${USER}/.emacs                \
     /home/${USER}/.ssh                  \
     /home/${USER}/.vnc                  \
-    /home/${USER}/.zprofile             \
     /home/${USER}/.zshrc.local
 ExecStart=/bin/borg check \
     --verbose             \
