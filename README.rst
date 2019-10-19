@@ -43,5 +43,3 @@ Make sure the services are ok:
 .. code-block:: bash
 
    systemctl --user status borg-backup-topic
-
-
